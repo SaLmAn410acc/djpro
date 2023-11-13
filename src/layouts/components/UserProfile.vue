@@ -1,5 +1,5 @@
 <script setup>
-import avatar1 from "@images/avatars/avatar-1.png"
+import avatar1 from "@images/avatars/avatar-16.png"
 import useAuth from "@/composables/useAuth.js"
 import useToastPlugin from "@/composables/vue-toastification.js"
 
@@ -43,8 +43,8 @@ const logoutUser = async () => {
           <VImg :src="avatar1" />
         </VAvatar>
         <div class="text-left ms-3">
-          <strong class="d-block text-body-2 font-weight-semibold">John Green</strong>
-          <small class="d-block font-weight-regular">Super Admin</small>
+          <strong class="d-block text-body-2 font-weight-semibold">Jeremy Sanderson</strong>
+          <small class="d-block font-weight-regular">Client</small>
         </div>
       </VBtn>
     </template>
@@ -71,9 +71,9 @@ const logoutUser = async () => {
         </template>
 
         <VListItemTitle class="font-weight-semibold">
-          John Doe
+          Jeremy Sanderson
         </VListItemTitle>
-        <VListItemSubtitle>Admin</VListItemSubtitle>
+        <VListItemSubtitle>Client</VListItemSubtitle>
       </VListItem>
 
       <VDivider class="my-2" />
