@@ -22,115 +22,11 @@
       <VCol
         cols="12"
         lg="6"
-      >
-        <div
-          v-if="inquiry.id"
-          class="d-flex justify-end"
-        >
-          <VBtn
-            class="font-weight-regular"
-            color="primary"
-            @click="createProposal"
-          >
-            Create a Proposal
-          </VBtn>
-          <!--
-            <VBtn
-            :to="{
-            name: 'inquiries-create-proposal',
-            params: { id: inquiry?.id },
-            }"
-            class="font-weight-regular"
-            color="primary"
-            >
-            Create a Proposal
-            </VBtn> 
-          -->
-        </div>
-      </VCol>
+      />
     </VRow>
     <VRow>
       <!-- Assign to -->
       <VCol v-if="inquiry">
-        <p class="text-black font-weight-semibold text-body-1">
-          Assign to
-        </p>
-        <div class="mb-6 mb-lg-8">
-          <VMenu>
-            <template #activator="{ props }">
-              <VBtn
-                variant="text"
-                color="black"
-                size="x-small"
-                class="rounded"
-                append-icon="tabler:caret-down-filled"
-                v-bind="props"
-              >
-                <VImg
-                  v-if="
-                    inquiry?.performer && inquiry?.performer?.image !== null
-                  "
-                  :src="inquiry?.performer?.image"
-                  :width="30"
-                  :height="30"
-                  cover
-                  class="rounded-circle"
-                />
-                <VIcon
-                  v-else
-                  icon="carbon:user-avatar-filled"
-                  :size="30"
-                  class="rounded-circle"
-                />
-                <span
-                  v-if="inquiry?.performer"
-                  class="d-inline-block ms-2"
-                >
-                  {{
-                    inquiry?.performer?.firstName +
-                      " " +
-                      inquiry?.performer?.lastName
-                  }}
-                </span>
-                <span
-                  v-else
-                  class="d-inline-block ms-2"
-                >Select User</span>
-              </VBtn>
-            </template>
-            <VList>
-              <VListItem
-                v-for="user_item in usersList"
-                :key="user_item.userId"
-                @click="updateUser(user_item)"
-              >
-                <template #prepend>
-                  <VImg
-                    v-if="user_item?.photoUrl !== null"
-                    :src="user_item?.photoUrl"
-                    :width="30"
-                    :height="30"
-                    color="black"
-                    cover
-                    class="rounded-circle"
-                  />
-                  <VIcon
-                    v-else
-                    icon="carbon:user-avatar-filled"
-                    :size="30"
-                    class="rounded-circle"
-                  />
-                </template>
-
-                <VListItemTitle>
-                  {{
-                    user_item.firstName + " " + user_item.lastName
-                  }}
-                </VListItemTitle>
-              </VListItem>
-            </VList>
-          </VMenu>
-        </div>
         <p class="text-black font-weight-semibold text-body-1">
           Notes
         </p>
@@ -143,26 +39,33 @@
               <VTextarea
                 v-model="notes1"
                 variant="plain"
-                rows="4"
+                rows="3"
                 class="w-100 px-3 text-black"
                 placeholder="Type your notes here..."
+                value="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their "
               />
               <span class="text-body-2 px-3 py-2 d-inline-block">
                 <small>12:30 PM 06/23/2023</small>
               </span>
             </div>
+
+
             <div class="border-b">
               <VTextarea
                 v-model="notes2"
                 variant="plain"
-                rows="4"
+                rows="3"
                 class="w-100 px-3 text-black"
                 placeholder="Type your notes here..."
+                value="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their "
               />
               <span class="text-body-2 px-3 py-2 d-inline-block">
                 <small>12:30 PM 06/23/2023</small>
               </span>
             </div>
+
+
+
             <div>
               <VTextarea
                 v-model="notes3"
@@ -171,9 +74,11 @@
                 class="w-100 px-3 text-black"
                 placeholder="Type your notes here..."
               />
-              <span class="text-body-2 px-3 py-2 d-inline-block">
+              <!--
+                <span class="text-body-2 px-3 py-2 d-inline-block">
                 <small>12:30 PM 06/23/2023</small>
-              </span>
+                </span> 
+              -->
             </div>
           </VCardText>
         </VCard>
@@ -212,7 +117,7 @@
               First Name
             </p>
             <p class="text-black font-weight-semibold">
-              {{ inquiry?.firstName }}
+              Jeremy
             </p>
           </div>
           <div>
@@ -220,7 +125,7 @@
               Last Name
             </p>
             <p class="text-black font-weight-semibold">
-              {{ inquiry?.lastName }}
+              Sanderson
             </p>
           </div>
           <div>
@@ -228,7 +133,7 @@
               Email
             </p>
             <p class="text-black font-weight-semibold">
-              {{ inquiry?.email }}
+              jeremysanderson@gmail.com
             </p>
           </div>
           <div>
@@ -236,7 +141,16 @@
               Phone Number
             </p>
             <p class="text-black font-weight-semibold">
-              {{ inquiry?.phone }}
+              (239) 555-0108
+            </p>
+          </div>
+
+          <div>
+            <p class="text-lighten">
+              Event date
+            </p>
+            <p class="text-black font-weight-semibold">
+              23 November, 2023
             </p>
           </div>
         </div>
@@ -253,7 +167,7 @@
               Event Date
             </p>
             <p class="text-black font-weight-semibold">
-              {{ inquiry?.eventDate }}
+              23 November, 2023
             </p>
           </div>
           <div>
@@ -261,7 +175,7 @@
               Venue Name
             </p>
             <p class="text-black font-weight-semibold">
-              {{ inquiry?.venueName }}
+              La Jolla
             </p>
           </div>
           <div>
@@ -269,7 +183,7 @@
               Venue Address
             </p>
             <p class="text-black font-weight-semibold">
-              {{ inquiry?.venueLocation }}
+              2750 Torrey Pines Rd, La Jolla, CA 92037, United States
             </p>
           </div>
           <div>
@@ -277,7 +191,7 @@
               Referral Source
             </p>
             <p class="text-black font-weight-semibold">
-              {{ inquiry?.referralSource }}
+              Google
             </p>
           </div>
         </div>
@@ -367,111 +281,147 @@
           </VCol>
         </VRow>
       </div>
-      <template
-        v-for="inquiryPackage in inquiry?.inquiryPackages"
-        :key="inquiryPackage.id"
-      >
-        <div class="border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
-          <h4 class="text-h4">
-            {{ inquiry?.eventType?.name }}
-          </h4>
-        </div>
-        <div class="px-6 px-md-8 px-lg-12 mb-6">
-          <VTable
-            class="packages-table mb-8 mb-lg-16"
-            density="default"
-            style="background: transparent"
-          >
-            <thead>
-              <tr>
-                <th>Product Photo</th>
-                <th>Product Name</th>
-                <th class="text-end">
-                  Price (USD)
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <img
-                    :src="inquiryPackage?.package?.photoUrl"
-                    class="rounded"
-                  >
-                </td>
-                <td>
-                  <h5 class="text-h5 mb-4">
-                    {{ inquiryPackage?.package?.name }}
-                  </h5>
-                  <ul class="text-black ps-5 text-body-2">
-                    <li
-                      v-for="item in inquiryPackage?.package?.description.split(
-                        '\n'
-                      )"
-                    >
-                      {{ item }}
-                    </li>
-                  </ul>
-                </td>
-                <td class="text-end">
-                  <h5 class="text-h5">
-                    $995.00
-                  </h5>
-                </td>
-              </tr>
-            </tbody>
-          </VTable>
-        </div>
-        <div class="border-t border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
-          <h4 class="text-h4">
-            Enhancements
-          </h4>
-        </div>
-        <div class="px-6 px-md-8 px-lg-12">
-          <VTable
-            class="text-black"
-            density="default"
-            style="background: transparent"
-          >
-            <thead>
-              <tr>
-                <th style="width: 1px">
-                  #
-                </th>
-                <th>Product Name</th>
-                <th class="text-end">
-                  Price
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                v-for="enhancement in inquiryPackage?.enhancements"
-                :key="enhancement.id"
-              >
-                <td style="width: 1px">
-                  <strong>
-                    {{ enhancement.id }}
-                  </strong>
-                </td>
-                <td>
-                  <strong>{{ enhancement.name }}</strong>
-                </td>
-                <td class="text-end">
-                  <strong>${{ enhancement.price }}</strong>
-                </td>
-              </tr>
-            </tbody>
-          </VTable>
-        </div>
-      </template>
+      
+      <div class="border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
+        <h4 class="text-h4">
+          Wedding DJ Packages
+        </h4>
+      </div>
+      <div class="px-6 px-md-8 px-lg-12 mb-6">
+        <VTable
+          class="packages-table mb-8 mb-lg-16"
+          density="default"
+          style="background: transparent"
+        >
+          <thead>
+            <tr>
+              <th>Product Photo</th>
+              <th>Product Name</th>
+              <th class="text-end">
+                Price (USD)
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <img
+                  :src="weddingDj"
+                  class="rounded"
+                >
+              </td>
+              <td>
+                <h5 class="text-h5 mb-4">
+                  Reception Package w/Dance Lighting
+                </h5>
+                <ul class="text-black ps-5 text-body-2">
+                  <li>
+                    4 hours of Professional Wedding Reception DJ/MC services
+                  </li>
+                  <li>
+                    Properly Dressed Wedding DJ
+                  </li>
+                  <li>
+                    Professional Sound System with 2 Speakers
+                  </li>
+                  <li>
+                    Wireless Microphone
+                  </li>
+                  <li>
+                    Lighting Stands or Lighting Truss System
+                  </li>
+                  <li>
+                    Dance Lighting
+                  </li>
+                  <li>
+                    Custom Wedding Timeline and Itinerary
+                  </li>
+                </ul>
+              </td>
+              <td class="text-end">
+                <h5 class="text-h5">
+                  $1995.00
+                </h5>
+              </td>
+            </tr>
+          </tbody>
+        </VTable>
+      </div>
+      <div class="border-t border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
+        <h4 class="text-h4">
+          Enhancements
+        </h4>
+      </div>
+      <div class="px-6 px-md-8 px-lg-12">
+        <VTable
+          class="text-black"
+          density="default"
+          style="background: transparent"
+        >
+          <thead>
+            <tr>
+              <th style="width: 1px">
+                #
+              </th>
+              <th>Product Name</th>
+              <th class="text-end">
+                Price
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="width: 1px">
+                <strong>
+                  1
+                </strong>
+              </td>
+              <td>
+                <strong>Additional Hour (DJ)</strong>
+              </td>
+              <td class="text-end">
+                <strong>$100.00</strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="width: 1px">
+                <strong>
+                  2
+                </strong>
+              </td>
+              <td>
+                <strong>Slide Show Creation</strong>
+              </td>
+              <td class="text-end">
+                <strong>$300.00</strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="width: 1px">
+                <strong>
+                  3
+                </strong>
+              </td>
+              <td>
+                <strong>Static Monogram & Gobo</strong>
+              </td>
+              <td class="text-end">
+                <strong>$300.00</strong>
+              </td>
+            </tr>
+          </tbody>
+        </VTable>
+      </div>
+      
       <div class="border-t py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
         <div class="d-flex gap-4 justify-end">
           <h4 class="text-h4 font-weight-bold">
             Total
           </h4>
           <h4 class="text-h4 font-weight-bold">
-            ${{ inquiry?.totalPrice }}
+            $1995.00
           </h4>
         </div>
       </div>
@@ -484,6 +434,7 @@ import axios from "@axios"
 import { useRoute } from "vue-router"
 import productPlaceholder from "@images/add-product/product-placeholder.png"
 import avatar from "@images/avatars/avatar-1.png"
+import weddingDj from "@images/proposals/wedding-dj.png"
 
 const route = useRoute()
 
@@ -543,6 +494,11 @@ const breadcrumbs = ref([
     disabled: false,
     to: "/inquiries",
   },
+  {
+    text: "Private Party",
+    disabled: true,
+    to: "/inquiries",
+  },
 
   // {
   //   text: inquiry.value?.eventType?.name ?? "Event Type",
@@ -550,10 +506,10 @@ const breadcrumbs = ref([
   // },
 ])
 
-onMounted(() => {
-  getUsers()
-  getInquiry()
-})
+// onMounted(() => {
+//   getUsers()
+//   getInquiry()
+// })
 </script>
 
 <style>

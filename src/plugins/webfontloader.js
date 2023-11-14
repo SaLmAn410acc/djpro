@@ -8,7 +8,8 @@ export async function loadFonts() {
 
   webFontLoader.load({
     google: {
-      families: ['Poppins:300,400,500,600,700,800,900&display=swap'],
+      // families: ['Poppins:300,400,500,600,700,800,900&display=swap'],
+      families: ["Poppins:300,400,500,600,700,800,900", "Allura"],
     },
   })
 }

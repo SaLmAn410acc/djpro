@@ -145,7 +145,7 @@
       <VRow class="my-6">
         <VCol
           cols="12"
-          :md="status == null ? 6 : 7"
+          :md="status ? 6 : 7"
           class="d-flex gap-x-3 align-center justify-center justify-md-end"
         >
           <p class="text-black font-weight-medium mb-0">
@@ -154,7 +154,7 @@
           <VBtn
             variant="outlined"
             color="#000"
-            class="blackBtn me-5 ms-6 my-3"
+            class="blackBtn me-2 ms-4 my-3"
             density="comfortable"
           >
             Back
@@ -162,34 +162,29 @@
         </VCol>
         <VCol
           cols="12"
-          :md="status == null ? 6 : 5"
+          :md="status ? 6 : 5"
           class="d-flex gap-x-3 align-center justify-center justify-md-start"
         >
-          <template v-if="status == null">
-            <VBtn
-              variant="outlined"
-              class="rejectedBtn my-3"
-              color="#FF334B"
-              density="comfortable"
-              @click="rejectedValue = !rejectedValue"
-            >
-              Reject a Proposal
-            </VBtn>
+          <template v-if="status == 'notaccepted'">
             <VBtn
               variant="flat"
               class="my-3 accpedtedBtn"
               density="comfortable"
               v-bind="props"
-              @click="acceptedValue = !acceptedValue"
             >
-              Accept a Proposal
+              Accept the Contract
             </VBtn>
           </template>
+          
           <template v-else-if="status == 'accepted'">
-            <strong class="text-primary mx-auto me-md-0">Accepted</strong>
-          </template>
-          <template v-else-if="status == 'rejected'">
-            <strong class="text-error mx-auto me-md-0">Rejected</strong>
+            <VBtn
+              variant="flat"
+              class="my-3 accpedtedBtn"
+              density="comfortable"
+              v-bind="props"
+            >
+              Upgrade the Contract
+            </VBtn>
           </template>
         </VCol>
       </VRow>
@@ -242,56 +237,194 @@
 
       <div class="border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
         <VRow>
-          <VCol cols="8">
+          <VCol
+            cols="12"
+            md="5"
+          >
             <VImg
               :src="logo"
               width="162"
             />
+
+            <div class="mt-10">
+              <h1 class="text-h1 font-weight-medium ">
+                Contract
+              </h1>
+              <h1 class="text-h1 font-weight-bold">
+                Wedding
+              </h1>
+            </div>
           </VCol>
-          <VCol>
-            <p class="mb-2 text-lighten">
-              From
-            </p>
-            <p class="mb-2 font-weight-semibold text-black">
-              On The Go DJ Pro
-            </p>
-            <p class="mb-2 font-weight-semibold text-black">
-              onthegodjpro@gmail.com
-            </p>
-          </VCol>
-        </VRow>
-        <VRow>
-          <VCol cols="8">
-            <h1 class="mb-4">
-              Wedding
-            </h1>
-            <p class="mb-2 font-weight-semibold text-black">
-              23 November, 2023
-            </p>
-          </VCol>
-          <VCol>
-            <p class="mb-2 text-lighten">
-              To
-            </p>
-            <p class="mb-2 font-weight-semibold text-black">
-              Jeremy Sanderson
-            </p>
-            <p class="mb-2 font-weight-semibold text-black">
-              jeremysanderson@gmail.com
-            </p>
-          </VCol>
-        </VRow>
-        <VRow>
-          <VCol>
-            <h5 class="text-h5 mb-4">
-              La Jolla
-            </h5>
-            <p class="font-weight-semibold text-black">
-              2750 Torrey Pines Rd, La Jolla, CA 92037, United States
-            </p>
+
+          <VCol
+            cols="12"
+            md="7"
+          >
+            <VRow>
+              <VCol
+                cols="12"
+                md="6"
+              >
+                <p class="mb-2 text-lighten">
+                  End Date and Time
+                </p>
+                <p class="mb-2 font-weight-semibold text-black">
+                  06/15/2023
+                </p>
+                <p class="mb-2 font-weight-semibold text-black">
+                  09:30 PM
+                </p>
+              </VCol>
+  
+              <VCol
+                cols="12"
+                md="6"
+              >
+                <p class="mb-2 text-lighten">
+                  From
+                </p>
+                <p class="mb-2 font-weight-semibold text-black">
+                  On The Go DJ Pro
+                </p>
+                <p class="mb-2 font-weight-semibold text-black">
+                  onthegodjpro@gmail.com
+                </p>
+              </VCol>
+            </VRow>
+
+            <VRow>
+              <VCol
+                cols="12"
+                md="6"
+              >
+                <p class="mb-2 text-lighten">
+                  End Date and Time
+                </p>
+                <p class="mb-2 font-weight-semibold text-black">
+                  06/15/2023
+                </p>
+                <p class="mb-2 font-weight-semibold text-black">
+                  09:30 PM
+                </p>
+              </VCol>
+
+              <VCol
+                cols="12"
+                md="6"
+              >
+                <p class="mb-2 text-lighten">
+                  From
+                </p>
+                <p class="mb-2 font-weight-semibold text-black">
+                  Jeremy Sanderson
+                </p>
+                <p class="mb-2 font-weight-semibold text-black">
+                  jeremysanderson@gmail.com
+                </p>
+              </VCol>
+            </VRow>
+
+            <VRow>
+              <VCol>
+                <p class="mb-2 text-lighten">
+                  Location
+                </p>
+                <p class="font-weight-semibold text-black">
+                  2750 Torrey Pines Rd, La Jolla, CA 92037, United States
+                </p>
+              </VCol>
+            </VRow>
           </VCol>
         </VRow>
       </div>
+
+      <!--       
+        <div class="border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
+        <VRow>
+        <VCol cols="6">
+        <VImg
+        :src="logo"
+        width="162"
+        />
+        </VCol>
+        <VCol>
+        <p class="mb-2 text-lighten">
+        End Date and Time
+        </p>
+        <p class="mb-2 font-weight-semibold text-black">
+        06/15/2023
+        </p>
+        <p class="mb-2 font-weight-semibold text-black">
+        09:30 PM
+        </p>
+        </VCol>
+
+          
+        <VCol>
+        <p class="mb-2 text-lighten">
+        From
+        </p>
+        <p class="mb-2 font-weight-semibold text-black">
+        On The Go DJ Pro
+        </p>
+        <p class="mb-2 font-weight-semibold text-black">
+        onthegodjpro@gmail.com
+        </p>
+        </VCol>
+        </VRow>
+
+
+
+        <VRow>
+        <VCol cols="6">
+        <h1 class="text-h1 font-weight-medium ">
+        Contract
+        </h1>
+        <h1 class="text-h1 font-weight-bold">
+        Wedding
+        </h1>
+        </VCol>
+
+        <VCol>
+        <p class="mb-2 text-lighten">
+        End Date and Time
+        </p>
+        <p class="mb-2 font-weight-semibold text-black">
+        06/15/2023
+        </p>
+        <p class="mb-2 font-weight-semibold text-black">
+        09:30 PM
+        </p>
+        </VCol>
+
+        <VCol>
+        <p class="mb-2 text-lighten">
+        To
+        </p>
+        <p class="mb-2 font-weight-semibold text-black">
+        Jeremy Sanderson
+        </p>
+        <p class="mb-2 font-weight-semibold text-black">
+        jeremysanderson@gmail.com
+        </p>
+        </VCol>
+        </VRow>
+
+
+        <VRow>
+        <VCol />
+        <VCol>
+        <p class="mb-2 text-lighten">
+        Location
+        </p>
+        <p class="font-weight-semibold text-black">
+        2750 Torrey Pines Rd, La Jolla, CA 92037, United States
+        </p>
+        </VCol>
+        </VRow>
+        </div>  
+      -->
+     
 
       <div class=" border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
         <h4 class="text-h4">
@@ -511,26 +644,70 @@
             </h4>
           </VCol>
         </VRow>
-        <p class="my-8 text-black">
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here, content here', making it
-          look like readable English. Many desktop publishing packages and web
-          page editors now use Lorem Ipsum as their default model text, and a
-          search for 'lorem ipsum' will uncover many web sites still in their
-          infancy. Various versions have evolved over the years, sometimes by
-          accident, sometimes on purpose (injected humour and the like).
-        </p>
-        <div class="text-center">
-          <VBtn
-            color="primary"
-            size="x-large"
-            class="px-xl-16"
-          >
-            Accept a Proposal
-          </VBtn>
+      </div>
+
+      <div class="border-t  py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
+        <h4 class="text-h5">
+          Conditions Of A Contract
+        </h4>
+      </div>
+
+      <div class="border-t  py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
+        <div class="border-b pb-10">
+          <h4 class="text-black font-weight-medium my-5">
+            1. Work and Payment.
+          </h4>
+        
+          <p class="text-black font-weight-medium">
+            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+          </p>
         </div>
+
+        <div class="py-10">
+          <h4 class="text-black font-weight-medium my-5">
+            2. Ownership and Licenses.
+          </h4>
+        
+          <p class="text-black font-weight-medium">
+            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+          </p>
+
+          <p class="text-black font-weight-medium pt-5">
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t  py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
+        <VRow class="align-center">
+          <VCol
+            cols="12"
+            md="6"
+          >
+            <h1 class="border-b pb-5 signature">
+              on the go dj pro
+            </h1>
+
+            <h5 class="text-h6 pt-5">
+              On The Go DJ Pro
+            </h5>
+            <h5 class="text-h6 font-weight-medium">
+              onthegodjpro@gmail.com
+            </h5>
+
+            <p class="text-lighten pt-8">
+              Signed on June 13, 2023
+            </p>
+          </VCol>
+
+          <VCol
+            class="text-start text-md-end"
+            cols="12"
+            md="6"
+          >
+            <VBtn><span class="mx-10 text-subtitle">Accept  the Contract</span></VBtn>
+          </VCol>
+        </VRow>
       </div>
     </VCard>
   </div>
@@ -547,7 +724,7 @@ import weddingDj from "@images/proposals/wedding-dj.png"
 const acceptedValue = ref(false)
 const rejectedValue = ref(false)
 
-const status = ref(null)
+const status = ref('notaccepted')
 
 // const status = ref('accepted')
 
@@ -612,11 +789,15 @@ const breadcrumbs = ref([
     to: "/inquiries",
   },
 
+
+
   // {
   //   text: inquiry.value?.eventType?.name ?? "Event Type",
   //   to: "/inquiries/private-party/" + route.params.slug,
   // },
 ])
+
+
 
 // onMounted(() => {
 //   getUsers()
@@ -631,8 +812,20 @@ const breadcrumbs = ref([
 </style>
 
 <style lang="scss">
+// @import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+
+
 .view-para{
   margin-block-end: 0;
+}
+
+.signature{
+  font-family: 'Allura' !important;
+  font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; 
+  
 }
 
 

@@ -39,9 +39,21 @@ const getData = async () => {
   }
 }
 
-onMounted(() => {
-  getData()
-})
+// onMounted(() => {
+//   getData()
+// })
+
+const items = [
+  { id: 1, eventType: 'Wedding',  eventDate: '06/22/2023', full_name: " Jeremy", notes: 'It is a long established fact that a reader will be distracted by the readable content... ', view_edit_profile: 'link1' },
+  { id: 2, eventType: 'Private Party', eventDate: '06/22/2023', full_name: " Jeremy", notes: 'It is a long established fact that a reader will be distracted by the readable content... ', view_edit_profile: 'link2' },
+  { id: 3, eventType: 'Corporate Event', eventDate: '06/22/2023', full_name: " Jeremy", notes: 'It is a long established fact that a reader will be distracted by the readable content... ', view_edit_profile: 'link3' },
+  { id: 4, eventType: 'Private Party', eventDate: '06/22/2023', full_name: " Jeremy", notes: 'It is a long established fact that a reader will be distracted by the readable content... ', view_edit_profile: 'link4' },
+  { id: 5, eventType: 'Engagement Event', eventDate: '06/22/2023', full_name: " Jeremy", notes: 'It is a long established fact that a reader will be distracted by the readable content... ', view_edit_profile: 'link5' },
+  { id: 6, eventType: 'Private Party', eventDate: '06/22/2023', full_name: " Jeremy", notes: 'It is a long established fact that a reader will be distracted by the readable content... ', view_edit_profile: 'link5' },
+
+  // Add more objects as needed
+]
+
 
 const headers = [
   {
@@ -60,13 +72,11 @@ const headers = [
     title: "Client's Name",
     key: "full_name",
   },
-  {
-    title: "Assigned To",
-    key: "performer",
-  },
+  
   {
     title: "Notes",
     sortable: false,
+    align: "start",
     key: "notes",
   },
   {
@@ -191,26 +201,26 @@ const formatDate = dateString => {
     </VRow>
     <VDataTable
       :headers="headers"
-      :items="data"
+      :items="items"
       :items-per-page="12"
       items-per-page-text="Show"
       :loading="loading"
       :items-per-page-options="itemPerPageOptions"
       :sort-by="[{ key: 'id', order: 'desc' }]"
     >
-      <template #item.full_name="{ item }">
-        <div class="d-flex align-center">
-          {{ item.raw.firstName }} {{ item.raw.lastName }}
+      <template #item.notes="{ item }">
+        <div class="notes-sec d-flex">
+          <div>
+            <span class="new-highlight pe-3 ">
+              New
+            </span>
+          </div>
+          <span>
+            {{ item.raw.notes }}
+          </span>
         </div>
       </template>
-      <template #item.eventDate="{ item }">
-        <div class="d-flex align-center">
-          {{ formatDate(item.raw.eventDate) }}
-        </div>
-      </template>
-      <template #item.eventType="{ item }">
-        {{ item.raw.eventType.name }}
-      </template>
+      
       <template #item.id="{ item }">
         <div class="d-flex align-center">
           <span
@@ -234,13 +244,7 @@ const formatDate = dateString => {
             {{ item?.raw?.performer?.lastName }}</span>
         </div>
       </template>
-      <template #item.notes="{ item }">
-        <span
-          v-for="note in item.raw.notes"
-          :key="note"
-          class="font-weight-medium d-block"
-        >{{ note ?? "-" }}</span>
-      </template>
+     
       <template #item.view_edit_profile="{ item }">
         <VBtn
           :to="{ name: 'inquiries-detail', params: { slug: item.raw.id } }"
@@ -258,39 +262,7 @@ const formatDate = dateString => {
         <VMenu
           transition="scale-transition"
           :close-on-content-click="false"
-        >
-          <template #activator="{ props }">
-            <VBtn
-              variant="plain"
-              color="#000"
-              size="none"
-              density="comfortable"
-              class="px-2"
-              v-bind="props"
-            >
-              <VIcon
-                icon="pepicons-pencil:dots-y"
-                size="30"
-              />
-            </VBtn>
-          </template>
-          <VCard>
-            <VList>
-              <VListItem>
-                <a
-                  href="#"
-                  class="text-black font-weight-medium"
-                >Archive Quote</a>
-              </VListItem>
-              <VListItem>
-                <a
-                  href="#"
-                  class="text-black font-weight-medium"
-                >Delete Quote</a>
-              </VListItem>
-            </VList>
-          </VCard>
-        </VMenu>
+        />
       </template>
     </VDataTable>
   </div>
@@ -302,12 +274,21 @@ const formatDate = dateString => {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: #6a8afa;
+  background-color: #E8B840;
   margin-right: 10px;
 
   @media (max-width: 767px) {
     width: 10px;
     height: 10px;
   }
+}
+
+.new-highlight{
+  color: #E8B840;
+}
+
+.notes-sec{
+  max-width: 500px;
+  width: 100%;
 }
 </style>
