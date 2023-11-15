@@ -255,3 +255,13 @@ strong {
 .vl-overlay .vl-background {
   backdrop-filter: blur(3px);
 }
+
+.v-application {
+  .drawer-above-application {
+    z-index: 1006 !important;
+
+    &+.v-navigation-drawer__scrim {
+      z-index: 1005 !important;
+    }
+  }
+}

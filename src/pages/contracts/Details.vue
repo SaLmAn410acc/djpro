@@ -31,113 +31,6 @@
   -->
 
   <div class="add-product-wrap my-6">
-    <VDialog
-      v-model="rejectedValue"
-      width="500"
-    >
-      <!-- Dialog close btn -->
-      <DialogCloseBtn @click="rejectedValue = !rejectedValue" />
-
-      <!-- Dialog Content -->
-      <VCard class="modal-card-wrapper pa-6 pa-md-6 pa-lg-8 pa-xl-12 ">
-        <div class="text-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-          >
-            <path
-              d="M20 23.6021L4.37138 39.2308C3.8585 39.7436 3.25814 40 2.57031 40C1.88248 40 1.28213 39.7436 0.769246 39.2308C0.256416 38.7179 0 38.1175 0 37.4297C0 36.7419 0.256416 36.1415 0.769246 35.6286L16.3979 20L0.769246 4.37138C0.256416 3.8585 0 3.25814 0 2.57031C0 1.88248 0.256416 1.28213 0.769246 0.769246C1.28213 0.256416 1.88248 0 2.57031 0C3.25814 0 3.8585 0.256416 4.37138 0.769246L20 16.3979L35.6286 0.769246C36.1415 0.256416 36.7419 0 37.4297 0C38.1175 0 38.7179 0.256416 39.2308 0.769246C39.7436 1.28213 40 1.88248 40 2.57031C40 3.25814 39.7436 3.8585 39.2308 4.37138L23.6021 20L39.2308 35.6286C39.7436 36.1415 40 36.7419 40 37.4297C40 38.1175 39.7436 38.7179 39.2308 39.2308C38.7179 39.7436 38.1175 40 37.4297 40C36.7419 40 36.1415 39.7436 35.6286 39.2308L20 23.6021Z"
-              fill="#FF334B"
-            />
-          </svg>
-
-          <h1 class="text-h2 px-5 pt-5 text-black ">
-            The Proposal Has Been Rejected
-          </h1>
-          <p class="text-body-2 my-5 pb-4">
-            Please contact us if you have any questions
-          </p>
-
-          <VBtn
-            size="large"
-            class="proposal-btn"
-            @click="rejectedValue = false"
-          >
-            <span class="px-5">
-              Go to Proposals
-            </span>
-          </VBtn>
-        </div>
-        
-
-        <!--
-          <VCardText class="d-flex justify-end">
-          <VBtn @click="rejectedValue = false">
-          I accept
-          </VBtn>
-          </VCardText> 
-        -->
-      </VCard>
-    </VDialog>
-
-
-    <VDialog
-      v-model="acceptedValue"
-      width="500"
-    >
-      <!-- Dialog close btn -->
-      <DialogCloseBtn @click="acceptedValue = !acceptedValue" />
-
-      <!-- Dialog Content -->
-      <VCard class="modal-card-wrapper pa-6 pa-md-6 pa-lg-8 pa-xl-12 ">
-        <div class="text-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="66"
-            height="37"
-            viewBox="0 0 66 37"
-            fill="none"
-          >
-            <path
-              d="M15.7219 36.1702L0.806625 21.55C0.248834 21.0032 -0.0196682 20.3498 0.00112042 19.5897C0.021909 18.8297 0.311199 18.1763 0.868991 17.6296C1.42678 17.0828 2.09339 16.8095 2.8688 16.8095C3.64422 16.8095 4.31082 17.0828 4.86861 17.6296L17.6807 30.2686L21.6802 34.189L19.6787 36.1702C19.1078 36.7298 18.4451 37.0063 17.6906 36.9999C16.9359 36.9935 16.2797 36.7169 15.7219 36.1702ZM29.6526 35.7085L14.7176 21.069C14.1598 20.5223 13.8947 19.869 13.922 19.1089C13.9494 18.3488 14.2484 17.689 14.8193 17.1294C15.3771 16.5955 16.0437 16.3286 16.8191 16.3286C17.5945 16.3286 18.2545 16.5955 18.7992 17.1294L31.631 29.7877L61.1638 0.85858C61.7085 0.311826 62.3686 0.0352338 63.144 0.0287988C63.9194 0.0224176 64.5925 0.292576 65.1633 0.839276C65.7211 1.38603 66 2.04266 66 2.80916C66 3.57562 65.7211 4.23222 65.1633 4.77897L33.6094 35.7085C33.0516 36.2552 32.3921 36.5286 31.631 36.5286C30.8698 36.5286 30.2104 36.2552 29.6526 35.7085ZM31.631 23.4927L27.651 19.5723L46.7818 0.82005C47.3396 0.273351 48.0062 0 48.7816 0C49.557 0 50.2236 0.273351 50.7814 0.82005C51.3261 1.3668 51.5984 2.02022 51.5984 2.78029C51.5984 3.54036 51.3261 4.18734 50.7814 4.72122L31.631 23.4927Z"
-              fill="#6A8AFA"
-            />
-          </svg>
-
-          <h1 class="text-h2 px-5 pt-5">
-            The Proposal Has Been Accepted
-          </h1>
-          <p class="text-body-2 my-5 pb-4">
-            Please contact us if you have any questions
-          </p>
-
-          <VBtn
-            size="large"
-            class="proposal-btn"
-            @click="acceptedValue = false"
-          >
-            <span class="px-5">
-              Go to Proposals
-            </span>
-          </VBtn>
-        </div>
-        
-
-        <!--
-          <VCardText class="d-flex justify-end">
-          <VBtn @click="rejectedValue = false">
-          I accept
-          </VBtn>
-          </VCardText> 
-        -->
-      </VCard>
-    </VDialog>
-
-
-
     <div
       class="mx-auto"
       style="max-width: 1200px;"
@@ -561,6 +454,12 @@
                   <li>Wireless Microphone</li>
                   <li>Lighting Stands or Lighting Truss System</li>
                   <li>Dance Lighting</li>
+                  <li>Fog Machine</li>
+                  <li>Custom Wedding Timeline and Itinerary</li>
+                  <li>Unlimited Phone And E-mail Consultation</li>
+                  <li>Access to our planning form app which allows you to invite friends and family to select music out for your special day</li>
+                  <li>Unlimited amounts of songs within or music database</li>
+                  <li>Free Set up and Break Down</li>
                 </ul>
               </td>
               <td class="text-end">
@@ -627,11 +526,258 @@
                 </strong>
               </td>
             </tr>
+
+
+            <tr>
+              <td style="width: 1px">
+                <strong>
+                  3	
+                </strong>
+              </td>
+              <td>
+                <strong>Static Monogram & Gobo	</strong>
+              </td>
+              <td class="text-end">
+                <strong>$150.00
+                </strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="width: 1px">
+                <strong>
+                  4	
+                </strong>
+              </td>
+              <td>
+                <strong>Animated Monogram & Gobo	</strong>
+              </td>
+              <td class="text-end">
+                <strong>$200.00 
+                </strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="width: 1px">
+                <strong>
+                  5	
+                </strong>
+              </td>
+              <td>
+                <strong>42 Inch or Bigger Flat Screen T.V.	</strong>
+              </td>
+              <td class="text-end">
+                <strong>$150.00
+                </strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="width: 1px">
+                <strong>
+                  6
+                </strong>
+              </td>
+              <td>
+                <strong>Projector & Screen</strong>
+              </td>
+              <td class="text-end">
+                <strong>$250.00
+                </strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="width: 1px">
+                <strong>
+                  7
+                </strong>
+              </td>
+              <td>
+                <strong>Half Room Uplighting 12</strong>
+              </td>
+              <td class="text-end">
+                <strong>$300.00
+                </strong>
+              </td>
+            </tr>
+          </tbody>
+        </VTable>
+      </div>
+
+      <div class="border-t border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
+        <h4 class="text-h4">
+          Photo Booth Packages
+        </h4>
+      </div>
+
+      <div class="px-6 px-md-8 px-lg-12 mb-6">
+        <VTable
+          class="packages-table mb-8 mb-lg-16"
+          density="default"
+          style="background: transparent"
+        >
+          <thead>
+            <tr>
+              <th>Product Photo</th>
+              <th>Product Name</th>
+              <th class="text-end">
+                Price (USD)
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <img
+                  :src="weddingDj"
+                  class="rounded"
+                >
+              </td>
+              <td>
+                <h5 class="text-h5 mb-4">
+                  Fundamental Package
+                </h5>
+                <ul class="text-black ps-5 text-body-2">
+                  <li>
+                    2 Hours Must Be Booked Mon-Friday(any me) or Fri-Sun event must end by 4pm
+                  </li>
+                  <li>
+                    Unlimited 2x6 High Quality Photo Strip
+                  </li>
+                  <li>
+                    Custom Design Layout (2 Revision)
+                  </li>
+                  <li>
+                    Prop Box, funning hats, Glasses, Mustaches..Etc.
+                  </li>
+                  <li>
+                    Fun & Professional On Site Photo Booth Technician
+                  </li>
+                </ul>
+              </td>
+              <td class="text-end">
+                <h5 class="text-h5">
+                  $995.00
+                </h5>
+              </td>
+            </tr>
+          </tbody>
+        </VTable>
+      </div>
+
+      <div class="px-6 px-md-8 px-lg-12">
+        <VTable
+          class="text-black"
+          density="default"
+          style="background: transparent"
+        >
+          <thead>
+            <tr>
+              <th style="width: 1px">
+                #
+              </th>
+              <th>Product Name</th>
+              <th class="text-end">
+                Price
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="width: 1px">
+                <strong>
+                  1	
+                </strong>
+              </td>
+              <td>
+                <strong>4x6 Prints	</strong>
+              </td>
+              <td class="text-end">
+                <strong>$100.00
+                </strong>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td style="width: 1px">
+                <strong>
+                  2	
+                </strong>
+              </td>
+              <td>
+                <strong>Green Screen	</strong>
+              </td>
+              <td class="text-end">
+                <strong>$300.00
+                </strong>
+              </td>
+            </tr>
+          </tbody>
+        </VTable>
+      </div>
+
+      <div class="border-t border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
+        <h4 class="text-h4">
+          Photography Reception Packages
+        </h4>
+      </div>
+
+      <div class="px-6 px-md-8 px-lg-12 mb-6">
+        <VTable
+          class="packages-table mb-8 mb-lg-16"
+          density="default"
+          style="background: transparent"
+        >
+          <thead class="table-header-wrapper">
+            <tr>
+              <th>Product Photo</th>
+              <th>Product Name</th>
+              <th class="text-end">
+                Price (USD)
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <img
+                  :src="weddingDj"
+                  class="rounded"
+                >
+              </td>
+              <td>
+                <h5 class="text-h5 mb-4">
+                  Ruby Package
+                </h5>
+                <ul class="text-black ps-5 text-body-2">
+                  <li>
+                    4 hours of Professional Photography
+                  </li>
+                  <li>
+                    Full Reprinting Rights all of pictures
+                  </li>
+                  <li>
+                    25 Digitally re-touched and edited photos
+                  </li>
+                  <li>
+                    Pictures Delivered on Thumb drive 4-6 weeks
+                  </li>
+                </ul>
+              </td>
+              <td class="text-end">
+                <h5 class="text-h5">
+                  $995.00
+                </h5>
+              </td>
+            </tr>
           </tbody>
         </VTable>
       </div>
       
-      <div class="border-t py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
+      <div class="border-t py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 ">
         <VRow>
           <VCol>
             <h4 class="text-h4">
@@ -679,14 +825,16 @@
       </div>
 
       <div class="border-t  py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
-        <VRow class="align-center">
+        <VRow class="align-center ">
           <VCol
             cols="12"
             md="6"
           >
-            <h1 class="border-b pb-5 signature">
+            <h1 class="pb-5 signature">
               on the go dj pro
             </h1>
+
+            <VDivider style="max-width: 400px; width:100%; " />
 
             <h5 class="text-h6 pt-5">
               On The Go DJ Pro
@@ -705,7 +853,30 @@
             cols="12"
             md="6"
           >
-            <VBtn><span class="mx-10 text-subtitle">Accept  the Contract</span></VBtn>
+            <template v-if="status == 'notaccepted'">
+              <VBtn><span class="mx-10 text-subtitle">Accept  the Contract</span></VBtn>
+            </template>
+
+            <template v-else-if="status == 'accepted'">
+              <h1 class=" pb-5 signature text-start">
+                John Doe
+              </h1>
+
+              
+
+              <VDivider style="max-width: 400px; width:100%; " />
+
+              <h5 class="text-h6 pt-5 text-start">
+                John Doe
+              </h5>
+              <h5 class="text-h6 font-weight-medium text-start">
+                johndoe@gmail.com
+              </h5>
+
+              <p class="text-lighten pt-8 text-start">
+                Signed on June 13, 2023
+              </p>
+            </template>
           </VCol>
         </VRow>
       </div>
@@ -724,7 +895,8 @@ import weddingDj from "@images/proposals/wedding-dj.png"
 const acceptedValue = ref(false)
 const rejectedValue = ref(false)
 
-const status = ref('notaccepted')
+// const status = ref('notaccepted')
+const status = ref('accepted')
 
 // const status = ref('accepted')
 
@@ -866,6 +1038,7 @@ line-height: 20px;
     thead {
       th {
         white-space: nowrap;
+        border-bottom: none;
       }
     }
 

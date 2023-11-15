@@ -1,7 +1,7 @@
-import { resolveVuetifyTheme } from "@core/utils/vuetify";
-import { themeConfig } from "@themeConfig";
+import { resolveVuetifyTheme } from "@core/utils/vuetify"
+import { themeConfig } from "@themeConfig"
 
-export const staticPrimaryColor = "#6A8AFA";
+export const staticPrimaryColor = "#6A8AFA"
 
 const theme = {
   defaultTheme: resolveVuetifyTheme(),
@@ -11,7 +11,7 @@ const theme = {
       colors: {
         primary:
           localStorage.getItem(
-            `${themeConfig.app.title}-lightThemePrimaryColor`
+            `${themeConfig.app.title}-lightThemePrimaryColor`,
           ) || staticPrimaryColor,
         "on-primary": "#fff",
         secondary: "#FA6A6A",
@@ -39,11 +39,13 @@ const theme = {
         "perfect-scrollbar-thumb": "#DBDADE",
         "skin-bordered-background": "#fff",
         "skin-bordered-surface": "#fff",
+
         // custom variables
         "btn-color-prime": "#333848",
         yellow: "#FFC107",
         black: "#272727",
         lighten: "#8E97A0",
+        'event-primary': '#EEEAFF',
       },
       variables: {
         "code-color": "#d400ff",
@@ -75,7 +77,7 @@ const theme = {
       colors: {
         primary:
           localStorage.getItem(
-            `${themeConfig.app.title}-darkThemePrimaryColor`
+            `${themeConfig.app.title}-darkThemePrimaryColor`,
           ) || staticPrimaryColor,
         "on-primary": "#fff",
         secondary: "#FA6A6A",
@@ -131,6 +133,6 @@ const theme = {
       },
     },
   },
-};
+}
 
-export default theme;
+export default theme

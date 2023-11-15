@@ -1,231 +1,204 @@
 <template>
+  <!--
+    <VRow class="mx-auto justify-center align-center">
+    <p class="font-weight-bold my-5 view-para">
+    This page is a view-only version
+    </p>
+
+    <VBtn
+    variant="outlined"
+    color="#000"
+    class="blackBtn mx-5 my-5"
+    >
+    Back
+    </VBtn>
+
+    <VBtn
+    variant="outlined"
+    class="rejectedBtn mx-5 my-5"
+    color="#FF334B"
+    >
+    Reject a Proposal
+    </VBtn>
+
+    <VBtn
+    variant="flat"
+    class="my-5 accpedtedBtn"
+    >
+    Accept a Proposal
+    </VBtn>
+    </VRow> 
+  -->
+
   <div class="add-product-wrap my-6">
-    <VRow
-      class="border-b pb-6 mb-6"
-      align="center"
-      no-gutters
-    >
-      <VCol
-        cols="12"
-        lg="6"
-      >
-        <VBreadcrumbs
-          :items="breadcrumbs"
-          class="px-0"
-          active-class="text-darken"
-        >
-          <template #divider>
-            <VIcon icon="quill:arrow-right" />
-          </template>
-        </VBreadcrumbs>
-      </VCol>
-      <VCol
-        cols="12"
-        lg="6"
-      />
-    </VRow>
-    <VRow>
-      <!-- Assign to -->
-      <VCol v-if="inquiry">
-        <p class="text-black font-weight-semibold text-body-1">
-          Notes
-        </p>
-        <VCard
-          variant="outlined"
-          class="mb-6 mb-lg-8"
-        >
-          <VCardText class="pa-0">
-            <div class="border-b">
-              <VTextarea
-                v-model="notes1"
-                variant="plain"
-                rows="3"
-                class="w-100 px-3 text-black"
-                placeholder="Type your notes here..."
-                value="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their "
-              />
-              <span class="text-body-2 px-3 py-2 d-inline-block">
-                <small>12:30 PM 06/23/2023</small>
-              </span>
-            </div>
-
-
-            <div class="border-b">
-              <VTextarea
-                v-model="notes2"
-                variant="plain"
-                rows="3"
-                class="w-100 px-3 text-black"
-                placeholder="Type your notes here..."
-                value="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their "
-              />
-              <span class="text-body-2 px-3 py-2 d-inline-block">
-                <small>12:30 PM 06/23/2023</small>
-              </span>
-            </div>
-
-
-
-            <div>
-              <VTextarea
-                v-model="notes3"
-                variant="plain"
-                rows="4"
-                class="w-100 px-3 text-black"
-                placeholder="Type your notes here..."
-              />
-              <!--
-                <span class="text-body-2 px-3 py-2 d-inline-block">
-                <small>12:30 PM 06/23/2023</small>
-                </span> 
-              -->
-            </div>
-          </VCardText>
-        </VCard>
-      </VCol>
-      <!-- Assign to -->
-    </VRow>
-    <VRow
-      class="py-4"
-      align="center"
-    >
-      <VCol>
-        <h1 class="text-h2 mb-3">
-          Wedding
-        </h1>
-      </VCol>
-      <VCol>
-        <p class="text-black text-end mb-3">
-          <strong>Performer Requested:</strong> Anthony Perez
-        </p>
-      </VCol>
-    </VRow>
-    <VCard
-      v-if="inquiry"
-      variant="outlined"
+    <div
       class="mx-auto"
+      style="max-width: 1200px;"
     >
+      <VRow class="my-6">
+        <VCol
+          cols="12"
+          :md="status=='accepted' ? 7 : 6"
+          class="d-flex gap-x-3 align-center justify-center justify-md-end"
+        >
+          <p class="text-black font-weight-medium mb-0">
+            This page is a view-only version
+          </p>
+          <VBtn
+            variant="outlined"
+            color="#000"
+            class="blackBtn me-2 ms-4 my-3"
+            density="comfortable"
+          >
+            Back
+          </VBtn>
+        </VCol>
+        <VCol
+          cols="12"
+          :md="status ? 6 : 5"
+          class="d-flex gap-x-3 align-center justify-center justify-md-start"
+        >
+          <template v-if="status == 'notaccepted'">
+            <VBtn
+              variant="flat"
+              class="my-3 accpedtedBtn"
+              density="comfortable"
+              v-bind="props"
+            >
+              Make Payment
+            </VBtn>
+          </template>
+        </VCol>
+      </VRow>
+    </div>   
+
+    <VCard
+      color="#F8F8FA"
+      variant="flat"
+      class="mx-auto cardBg"
+      :max-width="1200"
+    >
+      <!--
+        <VRow
+        class="
+        border-b
+        py-6
+        py-md-8
+        py-lg-12
+        px-6
+        px-md-8
+        px-lg-12
+        mb-6"
+        >
+        <VCol md="8">
+        <div>
+        <img
+        :src="logo"
+        alt=""
+        >
+        </div>
+
+        <h1 class="my-4 text-h2 font-weight-bold">
+        Wedding
+        </h1>
+        <p class="text-black text-body-2 font-weight-medium ">
+        23 November, 2023
+        </p>
+
+        <h5 class="mt-5">
+        La Jolla
+        </h5>
+        <p>2750 Torrey Pines Rd, La Jolla, CA 92037, United States</p>
+        </VCol>
+
+        <VCol md="4">
+        2
+        </VCol>
+        </VRow> 
+      -->
+
       <div class="border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
-        <h4 class="text-h4">
-          Contact Information
-        </h4>
-      </div>
-      <div class="border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
-        <div class="d-flex flex-wrap justify-space-between gap-3">
-          <div>
-            <p class="text-lighten">
-              First Name
+        <VRow>
+          <VCol cols="8">
+            <VImg
+              :src="logo"
+              width="162"
+            />
+          </VCol>
+          <VCol>
+            <p class="mb-2 text-lighten">
+              From
             </p>
-            <p class="text-black font-weight-semibold">
-              Jeremy
+            <p class="mb-2 font-weight-semibold text-black">
+              On The Go DJ Pro
             </p>
-          </div>
-          <div>
-            <p class="text-lighten">
-              Last Name
+            <p class="mb-2 font-weight-semibold text-black">
+              onthegodjpro@gmail.com
             </p>
-            <p class="text-black font-weight-semibold">
-              Sanderson
+          </VCol>
+        </VRow>
+        <VRow>
+          <VCol cols="8">
+            <h4 class="text-h5">
+              Invoice #21341
+            </h4>
+            <h1 class="mb-4 text-h2 font-weight-bold">
+              Wedding
+            </h1>
+          </VCol>
+          <VCol>
+            <p class="mb-2 text-lighten">
+              To
             </p>
-          </div>
-          <div>
-            <p class="text-lighten">
-              Email
+            <p class="mb-2 font-weight-semibold text-black">
+              Jeremy Sanderson
             </p>
-            <p class="text-black font-weight-semibold">
+            <p class="mb-2 font-weight-semibold text-black">
               jeremysanderson@gmail.com
             </p>
-          </div>
-          <div>
-            <p class="text-lighten">
-              Phone Number
-            </p>
-            <p class="text-black font-weight-semibold">
-              (239) 555-0108
-            </p>
-          </div>
+          </VCol>
+        </VRow>
+      </div>
 
-          <div>
-            <p class="text-lighten">
-              Event date
-            </p>
-            <p class="text-black font-weight-semibold">
-              23 November, 2023
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
-        <h4 class="text-h4">
-          Event Information
-        </h4>
-      </div>
-      <div class="border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
-        <div class="d-flex flex-wrap justify-space-between gap-3">
-          <div>
-            <p class="text-lighten">
-              Event Date
-            </p>
-            <p class="text-black font-weight-semibold">
-              23 November, 2023
-            </p>
-          </div>
-          <div>
-            <p class="text-lighten">
-              Venue Name
-            </p>
-            <p class="text-black font-weight-semibold">
-              La Jolla
-            </p>
-          </div>
-          <div>
-            <p class="text-lighten">
-              Venue Address
-            </p>
-            <p class="text-black font-weight-semibold">
-              2750 Torrey Pines Rd, La Jolla, CA 92037, United States
-            </p>
-          </div>
-          <div>
-            <p class="text-lighten">
-              Referral Source
-            </p>
-            <p class="text-black font-weight-semibold">
-              Google
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
+      <div class=" border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
         <h4 class="text-h4">
           DJ Services for Ceremony and Reception
         </h4>
       </div>
+
       <div class="border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
-        <div class="d-flex flex-wrap justify-space-between gap-3 v-col-md-6 v-col-lg-4 pa-0">
-          <div>
+        <VRow>
+          <VCol
+            cols="4"
+            lg="3"
+          >
             <p class="text-lighten">
               Ceremony Start Time
             </p>
             <p class="text-black font-weight-semibold">
               09:00 PM
             </p>
-          </div>
-          <div>
+          </VCol>
+          <VCol
+            cols="4"
+            lg="3"
+          >
             <p class="text-lighten">
               Reception End Time
             </p>
             <p class="text-black font-weight-semibold">
               05:00 AM
             </p>
-          </div>
-        </div>
+          </VCol>
+        </VRow>
       </div>
+
       <div class="border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
         <h4 class="text-h4">
           DJ Scheduling
         </h4>
       </div>
+
       <div class="border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
         <VRow>
           <VCol
@@ -281,7 +254,7 @@
           </VCol>
         </VRow>
       </div>
-      
+
       <div class="border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
         <h4 class="text-h4">
           Wedding DJ Packages
@@ -645,14 +618,31 @@
         </VTable>
       </div>
       
+      <div class="border-t py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 ">
+        <VRow>
+          <VCol>
+            <h4 class="text-h3">
+              Total Amount
+            </h4>
+          </VCol>
+          <VCol cols="auto">
+            <h4 class="text-h3">
+              $3400.00
+            </h4>
+          </VCol>
+        </VRow>
+      </div>
+
       <div class="border-t py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
-        <div class="d-flex gap-4 justify-end">
-          <h4 class="text-h4 font-weight-bold">
-            Total
-          </h4>
-          <h4 class="text-h4 font-weight-bold">
-            $1995.00
-          </h4>
+        <div class="text-center">
+          <VBtn
+            color="primary"
+            size="x-large"
+            class="px-xl-16"
+            height="65"
+          >
+            <span class="px-8 ">Make Payment</span>
+          </VBtn>
         </div>
       </div>
     </VCard>
@@ -664,7 +654,17 @@ import axios from "@axios"
 import { useRoute } from "vue-router"
 import productPlaceholder from "@images/add-product/product-placeholder.png"
 import avatar from "@images/avatars/avatar-1.png"
+import logo from "@images/proposals/logo-black.png"
 import weddingDj from "@images/proposals/wedding-dj.png"
+
+const acceptedValue = ref(false)
+const rejectedValue = ref(false)
+
+// const status = ref(null)
+
+// const status = ref('accepted')
+
+const status = ref('notaccepted')
 
 const route = useRoute()
 
@@ -724,11 +724,6 @@ const breadcrumbs = ref([
     disabled: false,
     to: "/inquiries",
   },
-  {
-    text: "Private Party",
-    disabled: true,
-    to: "/inquiries",
-  },
 
   // {
   //   text: inquiry.value?.eventType?.name ?? "Event Type",
@@ -749,6 +744,51 @@ const breadcrumbs = ref([
 </style>
 
 <style lang="scss">
+.view-para{
+  margin-block-end: 0;
+}
+
+
+// .proposal-btn .v-btn__content{
+//   padding: 0px 45px;
+// }
+
+
+// .modal-card-wrapper.v-card{
+//   padding: 60px;
+// }
+
+.top-message{
+  max-width: 1200px;
+}
+
+.rejectedBtn.v-btn--variant-outlined:not([class*=text-]) {
+    border-color:  #FF334B;
+    border-radius: 10px;
+}
+
+.blackBtn.v-btn--variant-outlined:not([class*=text-]) {
+    border-color:  #000;
+    border-radius: 10px;
+}
+
+.accpedtedBtn{
+  border-radius: 10px;
+}
+
+.add-product-wrap .cardBg{
+  background: #F8F8FA;
+  border-radius: none;
+}
+
+// .table-header-wrapper th{
+//   border-bottom: none;
+// }
+
+// .v-table__wrapper .v-table .v-table__wrapper > table > thead > tr > th {
+//     border-bottom: none;
+// }
+
 .v-table.packages-table {
   .v-table__wrapper {
     thead {
@@ -756,6 +796,8 @@ const breadcrumbs = ref([
         white-space: nowrap;
         border-bottom: none;
       }
+      
+    
     }
 
     tbody {

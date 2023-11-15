@@ -252,7 +252,7 @@ const formatDate = dateString => {
      
       <template #item.view_edit_profile="{ item }">
         <VBtn
-          :to="{ name: 'inquiries-detail', params: { slug: item.raw.id } }"
+          
           variant="plain"
           color="#000"
           size="none"

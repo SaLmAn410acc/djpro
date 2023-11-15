@@ -59,5 +59,6 @@ const routes = [
       title: "Inquiry Detail",
     },
   },
-];
-export default routes;
+]
+
+export default routes

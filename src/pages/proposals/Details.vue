@@ -328,68 +328,6 @@
 
       <div class="border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
         <h4 class="text-h4">
-          DJ Scheduling
-        </h4>
-      </div>
-
-      <div class="border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
-        <VRow>
-          <VCol
-            cols="4"
-            lg
-          >
-            <p class="text-lighten">
-              Start Date
-            </p>
-            <p class="text-black font-weight-semibold">
-              06/13/2023
-            </p>
-          </VCol>
-          <VCol
-            cols="4"
-            lg
-          >
-            <p class="text-lighten">
-              Start Time
-            </p>
-            <p class="text-black font-weight-semibold">
-              12:30 PM
-            </p>
-          </VCol>
-          <VCol
-            cols="4"
-            lg
-          >
-            <p class="text-lighten">
-              End Time
-            </p>
-            <p class="text-black font-weight-semibold">
-              08:30 PM
-            </p>
-          </VCol>
-          <VCol
-            cols="12"
-            lg="7"
-          >
-            <p class="text-lighten">
-              Total
-            </p>
-            <div class="d-flex flex-wrap gap-x-3">
-              <p class="text-black font-weight-semibold">
-                8 hours
-              </p>
-              <p class="text-body-2">
-                <small><span class="text-black font-weight-semibold">+4 additional hours</span>
-                  Will charge $150 for each additional hour over 4 hours for the
-                  event</small>
-              </p>
-            </div>
-          </VCol>
-        </VRow>
-      </div>
-
-      <div class="border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
-        <h4 class="text-h4">
           Wedding DJ Packages
         </h4>
       </div>
@@ -428,6 +366,12 @@
                   <li>Wireless Microphone</li>
                   <li>Lighting Stands or Lighting Truss System</li>
                   <li>Dance Lighting</li>
+                  <li>Fog Machine</li>
+                  <li>Custom Wedding Timeline and Itinerary</li>
+                  <li>Unlimited Phone And E-mail Consultation</li>
+                  <li>Access to our planning form app which allows you to invite friends and family to select music out for your special day</li>
+                  <li>Unlimited amounts of songs within or music database</li>
+                  <li>Free Set up and Break Down</li>
                 </ul>
               </td>
               <td class="text-end">
@@ -494,9 +438,257 @@
                 </strong>
               </td>
             </tr>
+
+
+            <tr>
+              <td style="width: 1px">
+                <strong>
+                  3	
+                </strong>
+              </td>
+              <td>
+                <strong>Static Monogram & Gobo	</strong>
+              </td>
+              <td class="text-end">
+                <strong>$150.00
+                </strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="width: 1px">
+                <strong>
+                  4	
+                </strong>
+              </td>
+              <td>
+                <strong>Animated Monogram & Gobo	</strong>
+              </td>
+              <td class="text-end">
+                <strong>$200.00 
+                </strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="width: 1px">
+                <strong>
+                  5	
+                </strong>
+              </td>
+              <td>
+                <strong>42 Inch or Bigger Flat Screen T.V.	</strong>
+              </td>
+              <td class="text-end">
+                <strong>$150.00
+                </strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="width: 1px">
+                <strong>
+                  6
+                </strong>
+              </td>
+              <td>
+                <strong>Projector & Screen</strong>
+              </td>
+              <td class="text-end">
+                <strong>$250.00
+                </strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="width: 1px">
+                <strong>
+                  7
+                </strong>
+              </td>
+              <td>
+                <strong>Half Room Uplighting 12</strong>
+              </td>
+              <td class="text-end">
+                <strong>$300.00
+                </strong>
+              </td>
+            </tr>
           </tbody>
         </VTable>
       </div>
+
+      <div class="border-t border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
+        <h4 class="text-h4">
+          Photo Booth Packages
+        </h4>
+      </div>
+
+      <div class="px-6 px-md-8 px-lg-12 mb-6">
+        <VTable
+          class="packages-table mb-8 mb-lg-16"
+          density="default"
+          style="background: transparent"
+        >
+          <thead>
+            <tr>
+              <th>Product Photo</th>
+              <th>Product Name</th>
+              <th class="text-end">
+                Price (USD)
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <img
+                  :src="weddingDj"
+                  class="rounded"
+                >
+              </td>
+              <td>
+                <h5 class="text-h5 mb-4">
+                  Fundamental Package
+                </h5>
+                <ul class="text-black ps-5 text-body-2">
+                  <li>
+                    2 Hours Must Be Booked Mon-Friday(any me) or Fri-Sun event must end by 4pm
+                  </li>
+                  <li>
+                    Unlimited 2x6 High Quality Photo Strip
+                  </li>
+                  <li>
+                    Custom Design Layout (2 Revision)
+                  </li>
+                  <li>
+                    Prop Box, funning hats, Glasses, Mustaches..Etc.
+                  </li>
+                  <li>
+                    Fun & Professional On Site Photo Booth Technician
+                  </li>
+                </ul>
+              </td>
+              <td class="text-end">
+                <h5 class="text-h5">
+                  $995.00
+                </h5>
+              </td>
+            </tr>
+          </tbody>
+        </VTable>
+      </div>
+
+      <div class="px-6 px-md-8 px-lg-12">
+        <VTable
+          class="text-black"
+          density="default"
+          style="background: transparent"
+        >
+          <thead>
+            <tr>
+              <th style="width: 1px">
+                #
+              </th>
+              <th>Product Name</th>
+              <th class="text-end">
+                Price
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="width: 1px">
+                <strong>
+                  1	
+                </strong>
+              </td>
+              <td>
+                <strong>4x6 Prints	</strong>
+              </td>
+              <td class="text-end">
+                <strong>$100.00
+                </strong>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td style="width: 1px">
+                <strong>
+                  2	
+                </strong>
+              </td>
+              <td>
+                <strong>Green Screen	</strong>
+              </td>
+              <td class="text-end">
+                <strong>$300.00
+                </strong>
+              </td>
+            </tr>
+          </tbody>
+        </VTable>
+      </div>
+
+      <div class="border-t border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
+        <h4 class="text-h4">
+          Photography Reception Packages
+        </h4>
+      </div>
+
+      <div class="px-6 px-md-8 px-lg-12 mb-6">
+        <VTable
+          class="packages-table mb-8 mb-lg-16"
+          density="default"
+          style="background: transparent"
+        >
+          <thead class="table-header-wrapper">
+            <tr>
+              <th>Product Photo</th>
+              <th>Product Name</th>
+              <th class="text-end">
+                Price (USD)
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <img
+                  :src="weddingDj"
+                  class="rounded"
+                >
+              </td>
+              <td>
+                <h5 class="text-h5 mb-4">
+                  Ruby Package
+                </h5>
+                <ul class="text-black ps-5 text-body-2">
+                  <li>
+                    4 hours of Professional Photography
+                  </li>
+                  <li>
+                    Full Reprinting Rights all of pictures
+                  </li>
+                  <li>
+                    25 Digitally re-touched and edited photos
+                  </li>
+                  <li>
+                    Pictures Delivered on Thumb drive 4-6 weeks
+                  </li>
+                </ul>
+              </td>
+              <td class="text-end">
+                <h5 class="text-h5">
+                  $995.00
+                </h5>
+              </td>
+            </tr>
+          </tbody>
+        </VTable>
+      </div>
+      
       
       <div class="border-t py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 mb-6">
         <VRow>

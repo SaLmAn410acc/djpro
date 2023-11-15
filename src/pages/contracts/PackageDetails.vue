@@ -114,9 +114,6 @@
       />
     </VRow>
 
-    
-    
-    
     <VCard variant="text">
       <VTabs v-model="currentTab">
         <VTab>Wedding DJ Packages</VTab>
@@ -835,13 +832,31 @@
                       <p class="text-black font-weight-bold py-3">
                         Beach
                       </p>
-                     
 
-                      <VRadio
-                        value="one"
-                        class="remove-image-btn radio-bg"
-                        color="#5F7CE1"
-                      />
+
+                      <VImg class="remove-image-btn radio-bg">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="22"
+                          height="22"
+                          viewBox="0 0 22 22"
+                          fill="none"
+                        >
+                          <rect
+                            width="22"
+                            height="22"
+                            rx="11"
+                            fill="white"
+                          />
+                          <circle
+                            cx="11"
+                            cy="11"
+                            r="7"
+                            stroke="#6A8AFA"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </VImg>
                     </VCol>
                     <div
                       v-if="(n % 5) === 0"
@@ -859,6 +874,12 @@
               </div>
             </div>
 
+
+            <div class="border-b py-6 py-md-8 py-lg-12 px-6 px-md-8 px-lg-12 ">
+              <h4 class="text-h3">
+                Enhancements
+              </h4>
+            </div>
             
 
             <div class="px-6 px-md-8 px-lg-12">
@@ -885,7 +906,7 @@
                       />
                     </td>
                     <td>
-                      <strong>Additional Hour (DJ)</strong>
+                      <strong>4x6 Prints</strong>
                     </td>
                     <td class="text-end">
                       <strong>$100.00</strong>
@@ -900,7 +921,7 @@
                       />
                     </td>
                     <td>
-                      <strong>Slide Show Creation</strong>
+                      <strong>Green Screen</strong>
                     </td>
                     <td class="text-end">
                       <strong>$300.00</strong>
@@ -915,7 +936,7 @@
                       />
                     </td>
                     <td>
-                      <strong>Static Monogram & Gobo</strong>
+                      <strong>Additional Scrap Book</strong>
                     </td>
                     <td class="text-end">
                       <strong>$300.00</strong>
@@ -931,67 +952,7 @@
                       />
                     </td>
                     <td>
-                      <strong>Animated Monogram & Gobo</strong>
-                    </td>
-                    <td class="text-end">
-                      <strong>$300.00</strong>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td style="width: 1px">
-                      <VCheckbox
-                        v-model="selected"
-                        value="selected5"
-                      />
-                    </td>
-                    <td>
-                      <strong>40-48 Inch Flat Screen W/Stand</strong>
-                    </td>
-                    <td class="text-end">
-                      <strong>$300.00</strong>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td style="width: 1px">
-                      <VCheckbox
-                        v-model="selected"
-                        value="selected6"
-                      />
-                    </td>
-                    <td>
-                      <strong>Projector & Screen</strong>
-                    </td>
-                    <td class="text-end">
-                      <strong>$300.00</strong>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td style="width: 1px">
-                      <VCheckbox
-                        v-model="selected"
-                        value="selected7"
-                      />
-                    </td>
-                    <td>
-                      <strong>Full Room Uplighting 24</strong>
-                    </td>
-                    <td class="text-end">
-                      <strong>$300.00</strong>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td style="width: 1px">
-                      <VCheckbox
-                        v-model="selected"
-                        value="selected8"
-                      />
-                    </td>
-                    <td>
-                      <strong>Karaoke add on</strong>
+                      <strong>Red Carpet and Rope Entrance</strong>
                     </td>
                     <td class="text-end">
                       <strong>$300.00</strong>
@@ -1278,15 +1239,11 @@ const breadcrumbs = ref([
 
 
 .edit-gallery-images-wrap .gallery-image-edit .remove-image-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  background-color: #fff;
-        width: 19px;
-    height: 18px;
-  border: 1px solid #5f7ce1;
+    position: absolute;
+       top: 10px;
+    right: 10px;
+    cursor: pointer;
+
 }
 
 
@@ -1353,6 +1310,7 @@ tbody tr td:first-of-type{
     thead {
       th {
         white-space: nowrap;
+        border-bottom: none;
       }
     }
 

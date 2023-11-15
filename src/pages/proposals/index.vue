@@ -137,7 +137,6 @@ const formatDate = dateString => {
 <template>
   <div class="main-service-wrap">
     <VRow align="center">
-    
       <VCol>
         <h1 class="text-h2 mb-6">
           Proposals
@@ -252,7 +251,7 @@ const formatDate = dateString => {
      
       <template #item.view_edit_profile="{ item }">
         <VBtn
-          :to="{ name: 'inquiries-detail', params: { slug: item.raw.id } }"
+          
           variant="plain"
           color="#000"
           size="none"
